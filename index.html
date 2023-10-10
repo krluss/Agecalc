@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Frontend Mentor | Age calculator app</title>
+
+
+</head>
+<body>
+
+  <main>
+
+    <div class="container">
+
+      <form id="submitForm">
+
+          
+
+            <div class="day">
+              <label class="label">DAY</label>
+              <input type="text" id="day" name="DD" placeholder="DD">
+              <small class="error"> </small>
+            </div>
+
+            <div class="month">
+              <label class="label">MONTH</label>
+              <input type="text" id="month"  name="MM" placeholder="MM">
+              <small class="error"> </small>
+            </div>
+
+            <div class="year">
+              <label class="label">YEAR</label>
+              <input type="text" id="year" name="YYYY" placeholder="YYYY">
+              <small class="error"> </small>
+            </div>
+          
+      </form>
+      
+      <div class="line-btn">
+        <hr>
+        <button form="submitForm" type="submit" class="submit-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
+        </button>
+        <hr class="after-line">
+      </div>
+      
+      <div class="result">
+
+        <p><span id="year-result">--</span> years</p>
+        <p><span id="month-result">--</span> months</p>
+        <p><span id="day-result">--</span> days</p>
+        
+      </div>
+
+    </div>
+
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
