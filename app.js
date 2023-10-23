@@ -44,23 +44,23 @@ const currentYear = new Date().getFullYear();
 const currentMonth = new Date().getMonth() + 1;
 const currentDay = new Date().getDate();
 
-const errorState = (numberOfInput, typeOfDate, numberOfError) => {
+const errorState = (numberOfInput, typeOfDate, numberOfError, color) => {
     errors[numberOfInput]. innerHTML = typeOfError[numberOfError];
-    labels[numberOfInput].style.color = errorColor;
-    typeOfDate.style.borderColor = errorColor;
+    labels[numberOfInput].style.color = color;
+    typeOfDate.style.borderColor = color;
 }
 
 const isDayCorrect = () => {
     if(dayInput.value == ''){
-        errorState(0, day, 1);
+        errorState(0, day, 1, errorColor);
         return false;
     }
     else if(dayInput.value <= 0 || dayInput.value > 31){
-        errorState(0, day, 4);
+        errorState(0, day, 4, errorColor);
         return false;
     }
     else if(!isValid(dayInput.value, monthInput.value - 1, yearInput.value)){
-        errorState(0, day, 5)
+        errorState(0, day, 5, errorColor)
         return false;
     }
     else{
@@ -71,15 +71,15 @@ const isDayCorrect = () => {
 
 const isMonthCorrect = () => {
     if(monthInput.value == ''){
-        errorState(1, month, 1);
+        errorState(1, month, 1, errorColor);
         return false;
     }
     else if(monthInput.value <= 0 || monthInput.value > 12){
-        errorState(1, month, 2);
+        errorState(1, month, 2, errorColor);
         return false;
     }
     else if(!isValid(dayInput.value, monthInput.value - 1, yearInput.value)){
-        errorState(1, month, 5)
+        errorState(1, month, 5, errorColor)
         return false;
     }
     else{
@@ -90,23 +90,23 @@ const isMonthCorrect = () => {
 
 const isYearCorrect = () => {
     if(yearInput.value == ''){
-        errorState(2, year, 1);
+        errorState(2, year, 1, errorColor);
         return false;
     }
     else if(yearInput.value > currentYear || yearInput.value < 100){
-        errorState(2, year, 3);
+        errorState(2, year, 3, errorColor);
         return false;
     }
     else if(!isValid(dayInput.value, monthInput.value - 1, yearInput.value)){
-        errorState(2, year, 5)
+        errorState(2, year, 5, errorColor)
         return false;
     }
     else if(yearInput.value == currentYear && monthInput.value > currentMonth){
-        errorState(1, month, 3)
+        errorState(1, month, 3, errorColor)
         return false;
     }
     else if(yearInput.value == currentYear && monthInput.value > currentMonth && dayInput.value > currentDay){
-        errorState(0, day, 2)
+        errorState(0, day, 2, errorColor)
         return false;
     }
     else{
